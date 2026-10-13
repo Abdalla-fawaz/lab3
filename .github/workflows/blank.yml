@@ -1,0 +1,19 @@
+name: Two Jobs Workflow
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: First job
+        run: echo "First job completed!"
+
+  second-job:
+    needs: first-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Second job
+        run: echo "Second job completed!"
